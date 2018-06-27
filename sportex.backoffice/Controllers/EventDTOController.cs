@@ -12,17 +12,17 @@ using System.Web.Mvc;
 
 namespace sportex.backoffice.Controllers
 {
-    public class LocationDTOController : Controller
+    public class EventDTOController : Controller
     {
-        // GET: LocationDTO
+        // GET: EventDTO
         public async Task<ActionResult> Index()
         {
             try
             {
-                List<LocationDTO> accInfo = new List<LocationDTO>();
+                List<EventDTO> accInfo = new List<EventDTO>();
                 using (var client = GlobalVariables.ApiClient())
                 {
-                    HttpResponseMessage res = await client.GetAsync("/api/Location");
+                    HttpResponseMessage res = await client.GetAsync("/api/Event");
 
                     //Checking the response is successful or not which is sent using HttpClient  
                     if (res.IsSuccessStatusCode)
@@ -30,11 +30,11 @@ namespace sportex.backoffice.Controllers
                         //Storing the response details recieved from web api   
                         var accResponse = res.Content.ReadAsStringAsync().Result;
 
-                        //Deserializing the response recieved from web api and storing into the LocationDTO list  
-                        accInfo = JsonConvert.DeserializeObject<List<LocationDTO>>(accResponse);
+                        //Deserializing the response recieved from web api and storing into the EventDTO list  
+                        accInfo = JsonConvert.DeserializeObject<List<EventDTO>>(accResponse);
 
                     }
-                    //returning the LocationDTO list to view  
+                    //returning the EventDTO list to view  
                     return View(accInfo);
                 }
             }
@@ -44,7 +44,7 @@ namespace sportex.backoffice.Controllers
             }
         }
 
-        // GET: LocationDTO/Details/5
+        // GET: EventDTO/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             try
@@ -57,11 +57,11 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.GetAsync("/api/Location/" + id);
+                        HttpResponseMessage res = await client.GetAsync("/api/Event/" + id);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
-                            LocationDTO accInfo = JsonConvert.DeserializeObject<LocationDTO>(accResponse);
+                            EventDTO accInfo = JsonConvert.DeserializeObject<EventDTO>(accResponse);
                             return View(accInfo);
                         }
                     }
@@ -74,15 +74,15 @@ namespace sportex.backoffice.Controllers
             }
         }
 
-        // GET: LocationDTO/Create
+        // GET: EventDTO/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: LocationDTO/Create
+        // POST: EventDTO/Create
         [HttpPost]
-        public async Task<ActionResult> Create(LocationDTO location)
+        public async Task<ActionResult> Create(EventDTO eve)
         {
             try
             {
@@ -90,13 +90,13 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.PostAsJsonAsync<LocationDTO>("/api/Location", location);
+                        HttpResponseMessage res = await client.PostAsJsonAsync<EventDTO>("/api/Event", eve);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
 
-                            //Deserializing the response recieved from web api and storing into the LocationDTO list  
-                            //LocationDTO accInfo = JsonConvert.DeserializeObject<LocationDTO>(accResponse);
+                            //Deserializing the response recieved from web api and storing into the EventDTO list  
+                            //EventDTO accInfo = JsonConvert.DeserializeObject<EventDTO>(accResponse);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ namespace sportex.backoffice.Controllers
             }
         }
 
-        // GET: LocationDTO/Edit/5
+        // GET: EventDTO/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             try
@@ -121,11 +121,11 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.GetAsync("/api/Location/" + id);
+                        HttpResponseMessage res = await client.GetAsync("/api/Event/" + id);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
-                            LocationDTO accInfo = JsonConvert.DeserializeObject<LocationDTO>(accResponse);
+                            EventDTO accInfo = JsonConvert.DeserializeObject<EventDTO>(accResponse);
                             return View(accInfo);
                         }
                     }
@@ -139,7 +139,7 @@ namespace sportex.backoffice.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(LocationDTO location)
+        public async Task<ActionResult> Edit(EventDTO eve)
         {
             try
             {
@@ -147,7 +147,7 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.PutAsJsonAsync<LocationDTO>("/api/Location/" + location.ID, location);
+                        HttpResponseMessage res = await client.PutAsJsonAsync<EventDTO>("/api/Event/" + eve.ID, eve);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
@@ -163,7 +163,7 @@ namespace sportex.backoffice.Controllers
         }
 
 
-        // GET: LocationDTO/Delete/5
+        // GET: EventDTO/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             try
@@ -176,11 +176,11 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.GetAsync("/api/Location/" + id);
+                        HttpResponseMessage res = await client.GetAsync("/api/Event/" + id);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
-                            LocationDTO accInfo = JsonConvert.DeserializeObject<LocationDTO>(accResponse);
+                            EventDTO accInfo = JsonConvert.DeserializeObject<EventDTO>(accResponse);
                             return View(accInfo);
                         }
                     }
@@ -193,9 +193,9 @@ namespace sportex.backoffice.Controllers
             }
         }
 
-        // POST: LocationDTO/Delete/5
+        // POST: EventDTO/Delete/5
         [HttpPost]
-        public async Task<ActionResult> Delete(int? id, LocationDTO location)
+        public async Task<ActionResult> Delete(int? id, EventDTO eve)
         {
             try
             {
@@ -207,13 +207,13 @@ namespace sportex.backoffice.Controllers
                 {
                     using (var client = GlobalVariables.ApiClient())
                     {
-                        HttpResponseMessage res = await client.DeleteAsync("/api/Location/" + id);
+                        HttpResponseMessage res = await client.DeleteAsync("/api/Event/" + id);
                         if (res.IsSuccessStatusCode)
                         {
                             var accResponse = res.Content.ReadAsStringAsync().Result;
 
-                            //Deserializing the response recieved from web api and storing into the LocationDTO list  
-                            //LocationDTO accInfo = JsonConvert.DeserializeObject<LocationDTO>(accResponse);
+                            //Deserializing the response recieved from web api and storing into the EventDTO list  
+                            //EventDTO accInfo = JsonConvert.DeserializeObject<EventDTO>(accResponse);
                         }
                     }
                     return RedirectToAction("Index");

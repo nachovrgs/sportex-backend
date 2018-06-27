@@ -168,6 +168,7 @@
     <Compile Include="Configuration\Auth\TokenResponse.cs" />
     <Compile Include="Configuration\GlobalVariables.cs" />
     <Compile Include="Controllers\AccountDTOController.cs" />
+    <Compile Include="Controllers\EventDTOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationDTOController.cs" />
     <Compile Include="Controllers\StandardProfileDTOController.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Models\AccountDTO.cs" />
     <Compile Include="Models\BaseProfileDTO.cs" />
     <Compile Include="Models\EventDTO.cs" />
+    <Compile Include="Models\EventParticipantDTO.cs" />
     <Compile Include="Models\LocationDTO.cs" />
     <Compile Include="Models\StandardProfileDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,10 +234,16 @@
     <Content Include="Views\StandardProfileDTO\Create.cshtml" />
     <Content Include="Views\StandardProfileDTO\Edit.cshtml" />
     <Content Include="Views\StandardProfileDTO\Delete.cshtml" />
+    <Content Include="Views\LocationDTO\Index.cshtml" />
+    <Content Include="Views\LocationDTO\Details.cshtml" />
+    <Content Include="Views\LocationDTO\Create.cshtml" />
+    <Content Include="Views\LocationDTO\Edit.cshtml" />
+    <Content Include="Views\LocationDTO\Delete.cshtml" />
+    <Content Include="Views\EventDTO\Index.cshtml" />
+    <Content Include="Views\EventDTO\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LocationDTO\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

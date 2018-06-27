@@ -1,0 +1,201 @@
+﻿@model sportex.backoffice.Models.EventDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Evento</h2>
+
+<div>
+    <h4>Detalles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            Nombre del evento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Comienzo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartingTime)
+        </dd>
+
+        <dt>
+            Lugar
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location.Name)
+        </dd>
+
+        <dt>
+            ID Lugar
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationID)
+        </dd>
+
+        <dt>
+            Tipo de evento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EventType)
+        </dd>
+
+        <dt>
+            Es público
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPublic)
+        </dd>
+
+        <dt>
+            Creador
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatorProfile.FirstName) @Html.DisplayFor(model => model.CreatorProfile.LastName)
+        </dd>
+
+        <dt>
+            ID perfil de creador
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StandardProfileID)
+        </dd>
+
+        <dt>
+            Máximo de participantes
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxStarters)
+        </dd>
+
+        <dt>
+            Máximo de suplentes
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxSubs)
+        </dd>
+
+        <dt>
+            Participantes anotados
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CountStarters)
+        </dd>
+
+        <dt>
+            Suplentes anotados
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CountSubs)
+        </dd>
+
+    </dl>
+    <div>
+        <hr />
+        <h4>Participantes</h4>
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    Orden
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    E-Mail
+                </th>
+                <th>
+                    Rating
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.ListStarters)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <hr />
+        <h4>Suplentes</h4>
+        <hr />
+        <table class="table">
+            <tr>
+                <th>
+                    Orden
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    E-Mail
+                </th>
+                <th>
+                    Rating
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.ListSubstitutes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

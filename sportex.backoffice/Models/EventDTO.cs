@@ -22,6 +22,8 @@ namespace sportex.backoffice.Models
         public int MaxSubs { get; set; }
         public int CountStarters { get; set; }
         public int CountSubs { get; set; }
+        public List<EventParticipantDTO> ListStarters { get; set; }
+        public List<EventParticipantDTO> ListSubstitutes { get; set; }
 
         #endregion
 
@@ -43,6 +45,8 @@ namespace sportex.backoffice.Models
                 this.IsPublic = false;
                 this.MaxStarters = 10;
                 this.MaxSubs = 10;
+                this.ListStarters = new List<EventParticipantDTO>();
+                this.ListSubstitutes = new List<EventParticipantDTO>();
             }
             catch (Exception ex)
             {
