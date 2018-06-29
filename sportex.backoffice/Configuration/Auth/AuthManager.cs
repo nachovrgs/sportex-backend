@@ -17,11 +17,18 @@ namespace sportex.backoffice.Configuration.Auth
 
         public static string Token()
         {
-            if (token == null || token == "")
+            try
             {
-                GetToken();
+                if (token == null || token == "")
+                {
+                    GetToken();
+                }
+                return token;
             }
-            return token;
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         //Obtiene un nuevo Token

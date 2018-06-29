@@ -224,5 +224,33 @@ namespace sportex.backoffice.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
+
+        public async Task<ActionResult> LeaveEvent(int? idProf, int? idEve)
+        {
+            try
+            {
+                if (idProf == null || idEve == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                else
+                {
+                    using (var client = GlobalVariables.ApiClient())
+                    {
+                        HttpResponseMessage res = await client.PostAsJsonAsync("/api/Event/LeaveEvent", new { idProfile = idProf, idEvent = idEve });
+                        if (res.IsSuccessStatusCode)
+                        {
+                            return RedirectToAction("Details/" + idEve);
+                        }
+                    }
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+
     }
 }

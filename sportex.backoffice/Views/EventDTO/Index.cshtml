@@ -5,45 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Eventos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo evento", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.StandardProfileID)
+            ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EventName)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Lugar
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EventType)
+            Comienzo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StartingTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsPublic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxStarters)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxSubs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountStarters)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountSubs)
+            Público
         </th>
         <th></th>
     </tr>
@@ -51,42 +33,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.StandardProfileID)
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EventName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventType)
+            @Html.DisplayFor(modelItem => item.Location.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartingTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LocationID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.IsPublic)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaxStarters)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxSubs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountStarters)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountSubs)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
         </td>
     </tr>
 }

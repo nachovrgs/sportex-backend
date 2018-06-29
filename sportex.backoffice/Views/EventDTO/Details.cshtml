@@ -11,7 +11,14 @@
     <h4>Detalles</h4>
     <hr />
     <dl class="dl-horizontal">
-        
+
+        <dt>
+            ID del evento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
         <dt>
             Nombre del evento
         </dt>
@@ -129,23 +136,26 @@
             </tr>
             @foreach (var item in Model.ListStarters)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Order)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
+                </td>
+                <td>
+                    @Html.ActionLink("Retirar", "LeaveEvent", new { idProf = item.StandardProfileID, idEve = Model.ID })
+                </td>
+            </tr>
             }
         </table>
     </div>
@@ -174,28 +184,31 @@
             </tr>
             @foreach (var item in Model.ListSubstitutes)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Order)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.MailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileParticipant.AverageRating)
+                </td>
+                <td>
+                    @Html.ActionLink("Retirar", "LeaveEvent", new { idProf = item.StandardProfileID, idEve = Model.ID })
+                </td>
+            </tr>
             }
         </table>
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Volver a listado de eventos", "Index")
 </p>
