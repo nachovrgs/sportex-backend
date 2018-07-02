@@ -169,8 +169,10 @@
     <Compile Include="Configuration\GlobalVariables.cs" />
     <Compile Include="Controllers\AccountDTOController.cs" />
     <Compile Include="Controllers\EventDTOController.cs" />
+    <Compile Include="Controllers\GroupDTOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationDTOController.cs" />
+    <Compile Include="Controllers\PlayerReviewDTOController.cs" />
     <Compile Include="Controllers\StandardProfileDTOController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,7 +181,10 @@
     <Compile Include="Models\BaseProfileDTO.cs" />
     <Compile Include="Models\EventDTO.cs" />
     <Compile Include="Models\EventParticipantDTO.cs" />
+    <Compile Include="Models\GroupDTO.cs" />
+    <Compile Include="Models\GroupMemberDTO.cs" />
     <Compile Include="Models\LocationDTO.cs" />
+    <Compile Include="Models\PlayerReviewDTO.cs" />
     <Compile Include="Models\StandardProfileDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -241,6 +246,15 @@
     <Content Include="Views\LocationDTO\Delete.cshtml" />
     <Content Include="Views\EventDTO\Index.cshtml" />
     <Content Include="Views\EventDTO\Details.cshtml" />
+    <Content Include="Views\EventDTO\Create.cshtml" />
+    <Content Include="Views\EventDTO\Edit.cshtml" />
+    <Content Include="Views\EventDTO\Delete.cshtml" />
+    <Content Include="Views\GroupDTO\Index.cshtml" />
+    <Content Include="Views\GroupDTO\Details.cshtml" />
+    <Content Include="Views\GroupDTO\Create.cshtml" />
+    <Content Include="Views\GroupDTO\Edit.cshtml" />
+    <Content Include="Views\GroupDTO\Delete.cshtml" />
+    <Content Include="Views\PlayerReviewDTO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

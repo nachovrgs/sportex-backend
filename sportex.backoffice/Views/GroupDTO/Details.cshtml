@@ -1,0 +1,117 @@
+﻿@model sportex.backoffice.Models.GroupDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Grupo</h2>
+
+<div>
+    <h4>Detalles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID del grupo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            Nombre del grupo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupDescription)
+        </dd>
+
+        <dt>
+            Creador
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorProfile.FirstName) @Html.DisplayFor(model => model.CreatorProfile.LastName)
+        </dd>
+
+        <dt>
+            ID perfil del creador
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardProfileID)
+        </dd>
+
+        <dt>
+            Foto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+
+        <dt>
+            Cantidad de miembros
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberCount)
+        </dd>
+
+    </dl>
+<div>
+    <hr />
+    <h4>Miembros</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th>
+                Rating
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.ListMembers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileMember.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileMember.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileMember.MailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileMember.AverageRating)
+                </td>
+                <td>
+                    @Html.ActionLink("Retirar", "LeaveGroup", new { idProf = item.StandardProfileID, idGroup = Model.ID })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Volver al listado de grupos", "Index")
+</p>
