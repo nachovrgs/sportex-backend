@@ -5,67 +5,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Perfil</h2>
 
 <div>
-    <h4>StandardProfileDTO</h4>
+    <h4>Detalles</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ID)
+            ID
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ID)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AccountID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AccountID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Account.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Account.Username)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MailAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MailAddress)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Nombre
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Apellido
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PicturePath)
+            E-Mail
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.PicturePath)
+            @Html.DisplayFor(model => model.MailAddress)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            Nombre de cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Account.Username)
+        </dd>
+
+        <dt>
+            ID de cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountID)
+        </dd>
+
+        <dt>
+            Fecha de nacimiento
         </dt>
 
         <dd>
@@ -73,7 +62,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sex)
+            Sexo
         </dt>
 
         <dd>
@@ -81,7 +70,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TotalRate)
+            Foto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+
+        <dt>
+            Promedio de rating
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageRating)
+        </dd>
+
+        <dt>
+            Rating acumulado
         </dt>
 
         <dd>
@@ -89,24 +94,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CountReviews)
+            Cantidad de calificaciones
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CountReviews)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AverageRating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AverageRating)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Volver al listado de perfiles", "Index")
 </p>

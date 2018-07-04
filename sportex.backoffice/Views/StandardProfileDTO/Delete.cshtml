@@ -5,55 +5,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar perfil</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Está seguro que desea eliminar este perfil?</h3>
 <div>
-    <h4>StandardProfileDTO</h4>
+    <h4>@*StandardProfileDTO*@</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AccountID)
+            ID
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.AccountID)
+            @Html.DisplayFor(model => model.ID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MailAddress)
+            Nombre
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MailAddress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Apellido
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PicturePath)
+            E-Mail
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.PicturePath)
+            @Html.DisplayFor(model => model.MailAddress)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            Nombre de cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Account.Username)
+        </dd>
+
+        <dt>
+            ID de cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountID)
+        </dd>
+
+        <dt>
+            Fecha de nacimiento
         </dt>
 
         <dd>
@@ -61,7 +63,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sex)
+            Sexo
         </dt>
 
         <dd>
@@ -69,7 +71,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TotalRate)
+            Foto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+
+        <dt>
+            Promedio de rating
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageRating)
+        </dd>
+
+        <dt>
+            Rating acumulado
         </dt>
 
         <dd>
@@ -77,19 +95,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CountReviews)
+            Cantidad de calificaciones
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CountReviews)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AverageRating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AverageRating)
         </dd>
 
     </dl>
@@ -98,8 +108,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver al listado de perfiles", "Index")
         </div>
     }
 </div>

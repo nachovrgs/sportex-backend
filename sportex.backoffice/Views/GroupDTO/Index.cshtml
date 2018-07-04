@@ -5,27 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Grupos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo grupo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.StandardProfileID)
+            ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GroupName)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GroupDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PicturePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberCount)
+            Cantidad de miembros
         </th>
         <th></th>
     </tr>
@@ -33,24 +27,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.StandardProfileID)
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GroupName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PicturePath)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.MemberCount)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
         </td>
     </tr>
 }

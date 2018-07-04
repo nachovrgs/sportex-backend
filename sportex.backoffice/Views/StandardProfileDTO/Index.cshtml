@@ -5,53 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Standard Profiles</h2>
+<h2>Perfiles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.AccountID)
-        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.MailAddress)
+            ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            Apellido
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PicturePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sex)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.TotalRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountReviews)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.AverageRating)
+            E-Mail
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.AccountID)
-        </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.MailAddress)
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
@@ -60,27 +39,12 @@
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PicturePath)
+            @Html.DisplayFor(modelItem => item.MailAddress)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sex)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.TotalRate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountReviews)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.AverageRating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
         </td>
     </tr>
 }

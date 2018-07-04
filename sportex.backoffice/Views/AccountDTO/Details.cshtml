@@ -5,21 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Cuenta</h2>
 
 <div>
-    <h4>AccountDTO</h4>
+    <h4>Detalles</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ID)
+            ID
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ID)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Username)
+            Nombre de cuenta
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Password)
+            Contraseña
         </dt>
 
         <dd>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Volver a listado de cuentas", "Index")
 </p>
